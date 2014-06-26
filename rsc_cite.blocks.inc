@@ -29,35 +29,29 @@ function rsc_cite_block_view($delta = '') {
   switch ($delta) {
     case 'quotes':
       $node = rsc_cite_get_random('rsc_cite_short');
-      $tag = 'span'; // inline
       break;
     case 'paragraphs':
       $node = rsc_cite_get_random('rsc_cite_paragraph');
-      $tag = 'p';    // block
       break;
   }
   
   if (!empty($node)) {
     
-    $citation = rsc_cite_field_get_safe_value($node,'rscc_body');
-    
+    $citation = field_view_field('node',$node,'rscc_body',array('label'=>'hidden'));
     $author = NULL;
     foreach($node as $fieldname => $items) {
       if (substr($fieldname,0,12) === 'rscc_author_') {
-        $author = field_get_items('node',$node,$fieldname);
-        $author = array_shift($author);
-        $author = taxonomy_term_load($author['tid']);
+        $author = field_view_field('node',$node,$fieldname,array('label'=>'hidden'));
+        $author['#weight'] = 10;
+        break;
       }
     }
     
     $block = array(
       'subject' => $node->title,
       'content' => array(
-        '#theme'    => 'rsc_cite_block',
-        '#tag'      => $tag,
-        '#node'     => $node,
-        '#citation' => $citation,
-        '#author'   => $author,
+        'citation' => $citation,
+        'author'   => $author,
       ),
     );
   }
@@ -85,20 +79,5 @@ function rsc_cite_get_random($bundle = NULL) {
     
   }
   return $node;
-}
-
-
-/**
- * Get value of first field item of node
- */
-function rsc_cite_field_get_safe_value($node, $fieldname) {
-  $items = field_get_items('node',$node,$fieldname);
-  if ($items) {
-    $item = array_shift($items);
-    if (!empty($item['safe_value'])) {
-      return $item['safe_value'];
-    }
-  }
-  return NULL;
 }
 
