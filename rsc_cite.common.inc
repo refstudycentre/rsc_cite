@@ -204,7 +204,8 @@ function rsc_cite_field_instance_config($form_values = NULL) {
       'settings'    => array('text_processing' => 1), // allow text processing
       'display'     => array(
         'default' => array(
-          'label' => 'hidden',
+          'label'  => 'hidden',
+          'weight' => 1,
         ),
       ),
     ));
@@ -222,7 +223,8 @@ function rsc_cite_field_instance_config($form_values = NULL) {
       'settings'    => array('text_processing' => 0), // plain text
       'display'     => array(
         'default' => array(
-          'label' => 'hidden',
+          'label'  => 'hidden',
+          'weight' => 1,
         ),
       ),
     ));
