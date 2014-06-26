@@ -1,0 +1,8 @@
+name = RSC Cite
+description = Defines content types and blocks for citations (short quotes and paragraphs)
+core = 7.x
+package = "RSC"
+
+dependencies[] = taxonomy
+
+configure = admin/structure/rsc_cite

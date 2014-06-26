@@ -1,0 +1,22 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function rsc_cite_install() {
+  
+  module_load_include('inc','rsc_cite','rsc_cite.common');
+  
+  /* Settings for content types */
+  rsc_cite_content_type_settings();
+  
+}
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function rsc_cite_uninstall() {
+  // TODO: remove variables
+}
