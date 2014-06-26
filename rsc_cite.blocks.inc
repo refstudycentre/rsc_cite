@@ -38,6 +38,7 @@ function rsc_cite_block_view($delta = '') {
   if (!empty($node)) {
     
     $citation = field_view_field('node',$node,'rscc_body',array('label'=>'hidden'));
+    
     $author = NULL;
     foreach($node as $fieldname => $items) {
       if (substr($fieldname,0,12) === 'rscc_author_') {
@@ -47,7 +48,14 @@ function rsc_cite_block_view($delta = '') {
       }
     }
     
-    $subject = empty($node->title) ? "" : l($node->title,"node/{$node->nid}");
+    if (empty($node->title)) {
+      // no title, make body clickable
+      $subject = "";
+      $citation[0]['#markup'] = l($citation[0]['#markup'],"node/{$node->nid}");
+    } else {
+      // make title clickable
+      $subject = l($node->title,"node/{$node->nid}");
+    }
     
     $block = array(
       'subject' => $subject,
