@@ -47,8 +47,10 @@ function rsc_cite_block_view($delta = '') {
       }
     }
     
+    $subject = empty($node->title) ? "" : l($node->title,"node/{$node->nid}");
+    
     $block = array(
-      'subject' => $node->title,
+      'subject' => $subject,
       'content' => array(
         'citation' => $citation,
         'author'   => $author,
