@@ -42,14 +42,14 @@ function rsc_cite_menu() {
 function rsc_cite_node_info() {
   return array(
     'rsc_cite_short' => array(
-      'name'        => t('RSC Cite: Short quote'),
+      'name'        => t('RSC Cite: Short citation'),
       'base'        => 'rsc_cite_short',
       'description' => t("A short citation, with an author."),
       'locked'      => TRUE,  // admin cannot change machine name
       'has_title'   => FALSE, // no title field
     ),
     'rsc_cite_paragraph' => array(
-      'name'        => t('RSC Cite: Paragraph quote'),
+      'name'        => t('RSC Cite: Paragraph citation'),
       'base'        => 'rsc_cite_paragraph',
       'description' => t("A citation of any length, with an author and optional tags."),
       'locked'      => TRUE,  // admin cannot change machine name

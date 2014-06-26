@@ -6,13 +6,13 @@
  */
 function rsc_cite_block_info() {
 
-  $blocks['quotes'] = array(
-    'info'  => t('RSC Cite: short quotes'),
+  $blocks['short'] = array(
+    'info'  => t('RSC Cite: short citations'),
     'cache' => DRUPAL_NO_CACHE,  // we cache the query result inside block_view
   );
 
-  $blocks['paragraphs'] = array(
-    'info'  => t('RSC Cite: paragraph quotes'),
+  $blocks['paragraph'] = array(
+    'info'  => t('RSC Cite: paragraph citations'),
     'cache' => DRUPAL_NO_CACHE,  // we cache the query result inside block_view
   );
 
@@ -27,10 +27,10 @@ function rsc_cite_block_view($delta = '') {
   $block = array();
   
   switch ($delta) {
-    case 'quotes':
+    case 'short':
       $node = rsc_cite_get_random('rsc_cite_short');
       break;
-    case 'paragraphs':
+    case 'paragraph':
       $node = rsc_cite_get_random('rsc_cite_paragraph');
       break;
   }
