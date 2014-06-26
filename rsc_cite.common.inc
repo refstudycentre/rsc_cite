@@ -129,7 +129,8 @@ function rsc_cite_field_instance_config($form_values = NULL) {
           'required'    => false,
           'display'     => array(
             'default' => array(
-              'label' => 'hidden',
+              'label'  => 'hidden',
+              'weight' => 10,
             ),
           ),
           'widget'      => array('type' => 'options_select'),
@@ -147,7 +148,8 @@ function rsc_cite_field_instance_config($form_values = NULL) {
           'required'    => false,
           'display'     => array(
             'default' => array(
-              'label' => 'hidden',
+              'label'  => 'hidden',
+              'weight' => 10,
             ),
           ),
           'widget'      => array('type' => 'options_select'),
