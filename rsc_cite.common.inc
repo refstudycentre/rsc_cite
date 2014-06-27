@@ -158,7 +158,7 @@ function rsc_cite_field_instance_config($form_values = NULL) {
       }
       
     } else {
-      drupal_set_message(t('Cannot create instances of non-existing field <strong>@fieldname</strong> on taxonomy bundle <strong>@bundle</strong>.',array('@fieldname'=>$fieldname,'@bundle'=>$author_vocab->machine_name)),'error');
+      drupal_set_message(t('Cannot create instances of non-existing field <strong>@fieldname</strong> referencing taxonomy bundle <strong>@bundle</strong>.',array('@fieldname'=>$fieldname,'@bundle'=>$author_vocab->machine_name)),'error');
     }
   }
   
@@ -186,7 +186,7 @@ function rsc_cite_field_instance_config($form_values = NULL) {
       }
   
     } else {
-      drupal_set_message(t('Cannot create instances of non-existing field <strong>@fieldname</strong> on taxonomy bundle <strong>@bundle</strong>.',array('@fieldname'=>$fieldname,'@bundle'=>$author_vocab->machine_name)),'error');
+      drupal_set_message(t('Cannot create instances of non-existing field <strong>@fieldname</strong> referencing taxonomy bundle <strong>@bundle</strong>.',array('@fieldname'=>$fieldname,'@bundle'=>$author_vocab->machine_name)),'error');
     }
   }
 
