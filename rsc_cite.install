@@ -7,9 +7,49 @@
 function rsc_cite_install() {
   
   module_load_include('inc','rsc_cite','rsc_cite.common');
-  
-  /* Settings for content types */
+
+  /*
+   * Settings for content types
+   */
   rsc_cite_content_type_settings();
+
+  /*
+   * Set up the role and permissions for citation editors
+   */
+
+  $rolename = 'rsc citation editor';
+
+  // Try to load the role to see if it exists
+  $role = user_role_load_by_name($rolename);
+  if (!$role) {
+    // create it, since it does not exist
+    $role = new stdClass();
+    $role->name = $rolename;
+    user_role_save($role);
+    // load the newly created role, to get the rid
+    $role = user_role_load_by_name($rolename);
+  }
+
+  // Assign the necessary permissions to citation editors
+  user_role_change_permissions($role->rid, array(
+    'access content overview' => true,
+    'access content' => true,
+    'view own unpublished content' => true,
+    'view revisions' => true,
+    'revert revisions' => true,
+    'delete revisions' => true,
+    'view the administration theme' => true,
+    'create rsc_cite_short content' => true,
+    'edit own rsc_cite_short content' => true,
+    'edit any rsc_cite_short content' => true,
+    'delete own rsc_cite_short content' => true,
+    'delete any rsc_cite_short content' => true,
+    'create rsc_cite_paragraph content' => true,
+    'edit own rsc_cite_paragraph content' => true,
+    'edit any rsc_cite_paragraph content' => true,
+    'delete own rsc_cite_paragraph content' => true,
+    'delete any rsc_cite_paragraph content' => true,
+  ));
   
 }
 

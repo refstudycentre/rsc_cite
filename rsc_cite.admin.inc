@@ -70,6 +70,11 @@ function rsc_cite_settings() {
     '#options'       => $vocab_options,
   );
 
+  $form['rsc_cite']['vocabs']['permission_reminder'] = array(
+    '#type'   => 'markup',
+    '#markup' => '<p>Remember to give the "RSC citation editor" role permissions to add, edit and/or delete terms in these vocabularies.</p>'
+  );
+
   $form['rsc_cite']['actions'] = array(
     '#type'          => 'radios',
     '#title'         => 'Actions:',
