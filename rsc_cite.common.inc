@@ -19,6 +19,10 @@ function rsc_cite_content_type_settings() {
     variable_set("comment_{$type}", COMMENT_NODE_CLOSED);     // closed comments
     variable_set("menu_options_{$type}", array());           // no available menus
   }
+
+  // pathauto settings
+  variable_set("pathauto_node_rsc_cite_short_pattern", 'quote/[node:nid]');
+  variable_set("pathauto_node_rsc_cite_paragraph_pattern", 'par/[node:title]');
   
 }
 
