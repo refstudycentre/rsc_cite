@@ -82,7 +82,7 @@ function rsc_cite_settings() {
       'fields_cleanup'         => 'Delete (clean up) unused fields',
     ),
     'content_type_reset' => array('#description' => t("Default settings include: unpublished by default, comments closed, etc.")),
-    'fields_create'      => array('#description' => t("Old fields and field instances will not be deleted automatically. If you are experiencing trouble with a field or field instance, delete it, and the choose this option. YOU WILL LOSE ALL VALUES CONTAINED IN EVERY INSTANCE OF A FIELD IF YOU DELETE IT.")),
+    'fields_create'      => array('#description' => t("Old fields and field instances will not be deleted automatically. If you are experiencing trouble with a field or field instance, delete it, and then choose this option. YOU WILL LOSE ALL VALUES CONTAINED IN EVERY INSTANCE OF A FIELD IF YOU DELETE IT.")),
     'fields_cleanup'     => array('#description' => t("This will delete all fields created by rsc_cite which do not have any instances (i.e. are not linked to a content type any more). YOU WILL LOSE ALL DATA IN THESE FIELDS.")),
   );
 
